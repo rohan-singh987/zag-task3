@@ -1,10 +1,11 @@
 import React from 'react'
-import { Progress, Space } from 'antd';
+import { Progress } from 'antd';
 
+// using Ant Design for plotting chart
 
 const DonutChart = () => {
     return (
-        <div className='flex xl:flex-row flex-col justify-between mb-10'>
+        <div className='flex xl:flex-row flex-col mb-10'>
 
             <div className=' bg-white px-10 py-10 rounded-3xl flex flex-col justify-center items-center xl:mb-0 mb-5 '>
                 <h2 className='font-semibold mb-5 text-xl'>
@@ -30,7 +31,7 @@ const DonutChart = () => {
                 </div>
             </div>
 
-            <div className='xl:w-4/12 bg-white px-10 py-10 rounded-3xl '>
+            <div className='w-full bg-white px-10 py-10 ms-20 rounded-3xl '>
                 <h2 className='font-semibold mb-5 text-xl'>
                     Stats Overview
                 </h2>

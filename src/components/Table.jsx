@@ -3,21 +3,21 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Button, Space, Table } from 'antd';
 import Image from 'next/image';
-import search from '../../public/search.svg'
+import searchImg from '../../public/search.svg'
 
 const TableBoard = () => {
+
     const tableData = useSelector((state) => state.chart)
     const [filteredInfo, setFilteredInfo] = useState({});
     const [sortedInfo, setSortedInfo] = useState({});
+    const [search, setSearch] = useState("");
+
+
     const handleChange = (pagination, filters, sorter) => {
         console.log('Various parameters', pagination, filters, sorter);
         setFilteredInfo(filters);
         setSortedInfo(sorter);
     };
-    
-    const handleSearch = () =>{
-
-    }
 
     const columns = [
         {
@@ -95,6 +95,13 @@ const TableBoard = () => {
         },
     ];
 
+    const filteredData = tableData.filter((record) =>
+    Object.values(record)
+      .join('') // Combine all values in the record
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
+
 
     return (
         <div className='bg-white pt-10 rounded-3xl'>
@@ -103,14 +110,17 @@ const TableBoard = () => {
                     Active Members
                 </h2>
                 <div className='flex justify-between items-center px-5 rounded-xl bg-[#F9FBFF]'>
-                    <Image src={search} alt='' />
+                    <Image src={searchImg} alt='' />
                     <input type="text" className='bg-[#F9FBFF] px-3 py-2' placeholder='search'
-                    onChange={handleSearch}
+                    // onChange={handleSearch}
+                    onChange={(e) => setSearch(e.target.value)} 
                     />
                 </div>
             </div>
             <div>
-                <Table columns={columns} dataSource={tableData} pagination={{pageSize: 6,}} onChange={handleChange} />
+                <Table columns={columns} dataSource={filteredData} pagination={{pageSize: 6,}} 
+                onChange={handleChange}
+                />
             </div>
         </div>
     )

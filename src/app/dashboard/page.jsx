@@ -5,7 +5,6 @@ import Table from '@/components/Table';
 import React from 'react'
 
 const Dashboard = () => {
-  console.log("hello");
   return (
     <div className='text-black w-full sm:px-10 px-5 pt-7 min-h-screen'>
       <div>
