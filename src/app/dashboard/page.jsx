@@ -1,3 +1,4 @@
+import DonutChart from '@/components/DonutChart';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar'
 import Table from '@/components/Table';
@@ -9,6 +10,10 @@ const Dashboard = () => {
     <div className='text-black w-full sm:px-10 px-5 pt-7 min-h-screen'>
       <div>
       <Header />
+      </div>
+
+      <div>
+        <DonutChart />
       </div>
 
       <div>

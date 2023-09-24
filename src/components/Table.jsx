@@ -15,12 +15,6 @@ const TableBoard = () => {
         setSortedInfo(sorter);
     };
     
-    const setAgeSort = () => {
-        setSortedInfo({
-            order: 'descend',
-            columnKey: 'age',
-        });
-    };
     const handleSearch = () =>{
 
     }
@@ -30,16 +24,7 @@ const TableBoard = () => {
             title: 'Customer Name',
             dataIndex: 'name',
             key: 'name',
-            filters: [
-                {
-                    text: 'Joe',
-                    value: 'Joe',
-                },
-                {
-                    text: 'Jim',
-                    value: 'Jim',
-                },
-            ],
+            
             filteredValue: filteredInfo.name || null,
             onFilter: (value, record) => record.name.includes(value),
             sorter: (a, b) => a.name.length - b.name.length,
@@ -73,6 +58,20 @@ const TableBoard = () => {
             dataIndex: 'country',
             key: 'country',
             ellipsis: true,
+            filters: [
+                {
+                    text: 'India',
+                    value: 'India',
+                },
+                {
+                    text: 'Iran',
+                    value: 'Iran',
+                },
+                {
+                    text: 'Israel',
+                    value: 'Israel',
+                },
+            ],
         },
         {
             title: 'Status',
@@ -98,9 +97,9 @@ const TableBoard = () => {
 
 
     return (
-        <div className='bg-white pt-10 rounded-xl'>
+        <div className='bg-white pt-10 rounded-3xl'>
             <div className='flex justify-between items-end mb-5 mx-7'>
-                <h2>
+                <h2 className=' text-[#16C098] text-sm  '>
                     Active Members
                 </h2>
                 <div className='flex justify-between items-center px-5 rounded-xl bg-[#F9FBFF]'>

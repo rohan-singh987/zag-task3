@@ -169,6 +169,7 @@ const initialState = [
     
 ]
 
+// Creating Chart Slice to manage Chart related state at global level
 const chartSlice = createSlice({
     name: "chart",
     initialState,
